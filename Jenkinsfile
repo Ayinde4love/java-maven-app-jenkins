@@ -1,7 +1,7 @@
 pipeline {
     agent any 
-    parameter{
-        choice(name: 'VERSION', choice: ['1.1.0','1.2.0','1.3.0'], description: '')
+    parameter {
+        choice(name: 'VERSION', choice: ['1.1.0', '1.2.0', '1.3.0'], description: '')
         booleanParam(name: 'executeTests', defualtValue: true, description: '')
     }
     stages {
@@ -11,12 +11,12 @@ pipeline {
             }   
         }
         stage("test") {
-            when{
+            when {
                 expression{
                     params:executeTests
                 }
             }
-            steps{
+            steps {
                 echo 'testing the application...'
             }
         }
